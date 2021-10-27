@@ -16,8 +16,6 @@ require('dotenv').config();
 		const app = require(path.join(__dirname, '/src/') + 'app.js');
 		await app(client);
 
-		
-
 		client.login(process.env.DEV_TOKEN);
 	} catch (err) {
 		await client.destroy();

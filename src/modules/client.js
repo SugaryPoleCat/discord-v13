@@ -5,6 +5,7 @@ module.exports = {
 		ready: async (client, [message]) => {
 			try {
 				console.info('Ready client: ', client);
+				// Messages is empty, but at least the client is not 
 				console.info('Message: ', message);
 			} catch (err) {
 				await client.destroy();

@@ -1,0 +1,12 @@
+Through my testing, i found that mesageCreate doesnt work. For-- some reason. Cant even read the message contents so i cant check if this works or not. So, what we have to do, apparently, is do the fucking REST registering commands.
+
+WHICH is a problem.
+
+SO we will have to load in the servers, that our bot is connected to, after its launched.
+Then, we have to deploy commands to that server. 
+BUt we dont want to re-deploy ALL commands = process intensive and API limit shit
+SO what we have to do, is: 
+on start, check servers its connected to, check the COMMANDS it has deployed, or their version, if they are old, update,
+THEN if added to a new server, deploy commands for the server.
+Also include the prefix to our commands, so that we can do /!server for example.
+Because maybe someone else has already /server, you know.
