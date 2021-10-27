@@ -1,0 +1,27 @@
+{
+  "name": "discord-v13",
+  "version": "1.0.0",
+  "description": "Testing for discord v13",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/SugaryPoleCat/discord-v13.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/SugaryPoleCat/discord-v13/issues"
+  },
+  "homepage": "https://gitlab.com/SugaryPoleCat/discord-v13#readme",
+  "dependencies": {
+    "discord.js": "^13.2.0",
+    "node-fetch": "^3.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}
