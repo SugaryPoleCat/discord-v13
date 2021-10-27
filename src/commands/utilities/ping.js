@@ -12,7 +12,9 @@ module.exports = {
 		.setName(cmdName)
 		.setDescription('This will return pong if bot works correctly'),
 	async fox(client, interaction) {
-		console.log('we are in fox');
+		if (client.deb) {
+			console.log('we are in fox');
+		}
 		interaction.reply('Pong!');
 	}
-}
+};
