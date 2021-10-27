@@ -10,3 +10,8 @@ on start, check servers its connected to, check the COMMANDS it has deployed, or
 THEN if added to a new server, deploy commands for the server.
 Also include the prefix to our commands, so that we can do /!server for example.
 Because maybe someone else has already /server, you know.
+
+
+UPDATE 1:
+There are global commands, but they SLOWLY get populated. So during DEV, its good to use GUILD commands.
+It possible to addd .subcommand. You can even add CHOICES! with .addCHoice THERES EVEN OPTIONS! So you can type something back after reply! no more collector madness!

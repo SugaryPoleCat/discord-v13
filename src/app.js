@@ -41,29 +41,31 @@ module.exports = async (client) => {
 		for (const event in modules) {
 			console.log('Event loaded: ', event);
 			if (event == 'ready') {
-				await client.once(event, async () => {
+				await client.once(event, async (pooper) => {
 					// argsArray, will get an array from the ARGUMENTS, parsed into the event.
 					// So for example, the message event gets triggered. 
 					// we pass into the event, the INTERACTION callback, for example.
 
-					const argsArray = await Array.from(arguments);
-					console.log('argsArray: ', argsArray);
+					// const argsArray = await Array.from(arguments);
+					// console.log('argsArray: ', argsArray);
 					for (const m of modules[event]) {
 						// and now, we parse whatever we need into the event in the module, to make it work.
-						await m(client, argsArray);
+						await m(client, pooper);
 					}
 				});
 			} else {
-				await client.on(event, async () => {
+				await client.on(event, async (pooper) => {
 					// argsArray, will get an array from the ARGUMENTS, parsed into the event.
 					// So for example, the message event gets triggered. 
 					// we pass into the event, the INTERACTION callback, for example.
 
-					const argsArray = await Array.from(arguments);
-					console.log('argsArray: ', argsArray);
+					// This might not even be useful....
+					// const argsArray = await Array.from(arguments);
+					// console.log('pooper: ', pooper);
+					// console.log('argsArray: ', argsArray);
 					for (const m of modules[event]) {
 						// and now, we parse whatever we need into the event in the module, to make it work.
-						await m(client, argsArray);
+						await m(client, pooper);
 					}
 				});
 			}
