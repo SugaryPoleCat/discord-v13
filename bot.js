@@ -26,6 +26,7 @@ require('dotenv').config();
 	}
 })();
 
+// Doesnt work ?
 process.on('SIGTERM', () => {
 	client.destroy();
 	console.log('exiting');
