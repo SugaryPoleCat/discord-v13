@@ -5,7 +5,14 @@
   "main": "bot.js",
   "scripts": {
     "mondev": "nodemon bot.js",
-    "depcom": "node src/depCommands.js"
+    "dev-depcom": "node depCommands.js -dev",
+    "deb-depcom": "node depCommands.js -dev -deb",
+    "pub-depcom": "node depCommands.js",
+    "pub-depcom-deb": "node depCommands.js -deb",
+    "dev-bot": "nodemon bot.js -dev",
+    "deb-bot": "nodemon bot.js -dev -deb",
+    "pub-bot": "nodemon bot.js",
+    "pub-bot-deb": "nodemon bot.js -deb"
   },
   "repository": {
     "type": "git",

@@ -2,18 +2,32 @@ const fs = require('fs');
 const path = require('path');
 module.exports = async (client) => {
 	try {
-		console.log("we are in app.js");
+		console.log('we are in ', path.join(__dirname, __filename));
 
 		const modules = {};
 		// Load the directory
 		const moduleFiles = await fs.readdirSync(path.join(__dirname, '/modules/')).filter(file => file.endsWith('.js'));
-		await console.log('Loaded directory: ', moduleFiles);
+		if (client.deb == true) {
+			console.log('Loaded directory: ', moduleFiles);
+		}
 		// loop through every module
 		for (const file of moduleFiles) {
-			console.log('file: ', file);
+			if (client.deb == true) {
+				console.log('file: ', file);
+			}
 			// ^ the file that has been FOUND, but now we have to load it.
 			const moduleFile = await require(path.join(__dirname, '/modules/') + file);
-			console.log('Module loaded: ', moduleFile.name);
+			if (client.deb == true) {
+				console.log('Module loaded: ', moduleFile.name);
+			}
+
+			// if there are any LOAD events to be done in the module, do so here.
+			if (moduleFile.load) {
+				await moduleFile.load(client);
+				if (client.deb == true) {
+					console.log('client.commands: ', client.commands);
+				}
+			}
 
 			// now we have to go through the events in the moduleFIle.
 			// Because we can NAME it as well as do different things with it
@@ -33,23 +47,20 @@ module.exports = async (client) => {
 		// this will print out: {
 		// ready: [ events in ready ]
 		// }
-		console.log('modules: ', modules);
+		if (client.deb == true) {
+			console.log('modules: ', modules);
+		}
 
 		// NOW, because the bot works on client.on(EVENT, CALLBACK) logic
 		// we need to make the events usable.
 		// So--- we need to looop throuhg events IN the modules.
 		for (const event in modules) {
-			console.log('Event loaded: ', event);
+			if (client.deb == true) {
+				console.log('Event loaded: ', event);
+			}
 			if (event == 'ready') {
 				await client.once(event, async (pooper) => {
-					// argsArray, will get an array from the ARGUMENTS, parsed into the event.
-					// So for example, the message event gets triggered. 
-					// we pass into the event, the INTERACTION callback, for example.
-
-					// const argsArray = await Array.from(arguments);
-					// console.log('argsArray: ', argsArray);
 					for (const m of modules[event]) {
-						// and now, we parse whatever we need into the event in the module, to make it work.
 						await m(client, pooper);
 					}
 				});
@@ -71,12 +82,14 @@ module.exports = async (client) => {
 			}
 		}
 
+		console.log(path.join(__dirname, __filename), ' LOADED');
+
 		// TEMPORARY
 		// await client.destroy();
 		// process.exit(0);
 	} catch (err) {
 		await client.destroy();
-		console.error('[', new Date().toUTCString(), ']\n Something went wrong \n', err);
-		return process.exit(0).then(console.log('exited'));
+		console.error('[', new Date().toUTCString(), ']\n Something went wrong\nIN:', path.join(__dirname, __filename), '\n', err);
+		return process.exit(1).then(console.log('exited'));
 	}
 }

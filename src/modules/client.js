@@ -4,7 +4,7 @@ module.exports = {
 	events: {
 		ready: async (client, interaction) => {
 			try {
-				console.info('Ready at: ', client.readyAt);
+				console.info('Ready at: ', client.readyAt, '\nWith prefix: ', client.prefix, '\nWith args: ', client.args);
 				// Messages is empty, but at least the client is not 
 			} catch (err) {
 				await client.destroy();

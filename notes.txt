@@ -15,3 +15,7 @@ Because maybe someone else has already /server, you know.
 UPDATE 1:
 There are global commands, but they SLOWLY get populated. So during DEV, its good to use GUILD commands.
 It possible to addd .subcommand. You can even add CHOICES! with .addCHoice THERES EVEN OPTIONS! So you can type something back after reply! no more collector madness!
+
+UPDATE 2:
+so you odnt need to delete old commands. All you need is to PUSH them to the server and boom, old ocmmands gone.
+So the logic to update and handle old commands, should be ignored.
