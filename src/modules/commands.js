@@ -23,10 +23,22 @@ module.exports = {
 			if (commandName === 'choicetest') {
 				// interaction.reply('This is a choice test');
 				console.log(interaction.options);
-				console.log(interaction.options[0]);
-				if (interaction.options.name === 'category') {
+				// console.log(interaction.options[0]);
+				// console.log(interaction.options.name);
+				// console.log(interaction.options.value);
+				console.log(interaction.options._hoistedOptions[0]);
+				// it seems that the options are in hoistedOptions and that is an array.
+				// so i think it is possible to have multiple options and we will have to---
+				// SELECT right name, then check for righ value.
+
+
+				// console.log(interaction.options._hoistedOptions.name);
+				// console.log(interaction.options._hoistedOptions.value);
+				console.log(interaction.options._hoistedOptions[0].name);
+				console.log(interaction.options._hoistedOptions[0].value);
+				if (interaction.options._hoistedOptions[0].name === 'category') {
 					console.log('category is category');
-					if (interaction.options.value === 'gif_funny') {
+					if (interaction.options._hoistedOptions[0].value === 'gif_funny') {
 						interaction.reply('this is a funny gif, laugh.');
 					}
 				}

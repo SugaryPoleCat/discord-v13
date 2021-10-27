@@ -4,7 +4,8 @@
   "description": "Testing for discord v13",
   "main": "bot.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "mondev": "nodemon bot.js",
+    "depcom": "node src/depCommands.js"
   },
   "repository": {
     "type": "git",
