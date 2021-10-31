@@ -10,11 +10,19 @@ console.log(cmdName);
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName(cmdName)
-		.setDescription('This will return pong if bot works correctly'),
+		.setDescription('This will return pong if bot works correctly')
+		.addStringOption(option => option.setName('input').setDescription('enter string'))
+		.addIntegerOption(option => option.setName('int').setDescription('Enter interger')),
 	async fox(client, interaction) {
-		if (client.deb) {
-			console.log('we are in fox');
+		const string = interaction.options.getString('input');
+		const insteger = interaction.options.getInteger('int');
+		if(string){
+			console.log(string);
 		}
+		if(insteger){
+			console.log(insteger);
+		}
+		
 		interaction.reply('Pong! - this is just a normal command...');
 	}
 };

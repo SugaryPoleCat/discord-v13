@@ -29,10 +29,10 @@ module.exports = {
 	},
 	events: {
 		interactionCreate: async (client, interaction) => {
-			if (client.deb) {
-				console.log('interactionCreate');
-				console.log(interaction);
-			}
+			// if (client.deb) {
+			// 	console.log('interactionCreate');
+			// 	console.log(interaction);
+			// }
 			// console.log('interaction: ', interaction);
 			if (interaction.user.bot == true) {
 				console.log('user is a bot');

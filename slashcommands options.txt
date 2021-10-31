@@ -1,0 +1,10 @@
+if you do 
+.addStringOption(option => option.setName('thename').setDescription());
+
+you can do
+const res = interaction.options.getString('thename');
+
+
+if you do .addStringOption(option => option.setName('thename').setDescription().addOption());
+you cant do
+const res.

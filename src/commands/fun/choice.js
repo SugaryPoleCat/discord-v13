@@ -6,6 +6,7 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName(cmdName)
 		.setDescription('This will return pong if bot works correctly')
+		// this is a normal choice
 		.addStringOption(option => option
 			.setName('gayness')
 			.setDescription('Choose how gay you are')
@@ -23,6 +24,7 @@ module.exports = {
 		if(client.deb){
 			console.log(choice);
 		}
+		const choice = interaction.option.getString('gayness');
 		switch (choice.value) {
 			case 'gay_super':
 				reply = 'You are Super Super gay';
@@ -37,6 +39,6 @@ module.exports = {
 				reply = 'Where is the geh';
 				break;
 		}
-		interaction.reply(reply);
+		interaction.reply(reply + ' - this returns string choice');
 	}
 };

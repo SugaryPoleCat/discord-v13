@@ -6,7 +6,10 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName(cmdName)
 		.setDescription('This will return pong if bot works correctly')
+		// this returns true/false
 		.addBooleanOption(option => option
+			// this is displayed as option name
+			// so make sure your option is right.
 			.setName('gayman')
 			.setDescription('Choose how gay you are')
 			.setRequired(true)),
@@ -31,6 +34,6 @@ module.exports = {
 				reply = 'It is unkown if you are geh or not.';
 				break;
 		}
-		interaction.reply(reply);
+		interaction.reply(reply + ' - this returns either true or false');
 	}
 };
