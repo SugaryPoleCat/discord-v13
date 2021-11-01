@@ -19,3 +19,10 @@ It possible to addd .subcommand. You can even add CHOICES! with .addCHoice THERE
 UPDATE 2:
 so you odnt need to delete old commands. All you need is to PUSH them to the server and boom, old ocmmands gone.
 So the logic to update and handle old commands, should be ignored.
+
+UPDATE 3: 
+you can apparenlty have more than 1 option.
+So subcommands, add like a forced option to the /comand. 
+So it would be like you know, having multiple commands parsed in an arg, in v12.
+then manually doing the "oh, args[0] is uhhh cash transfer for command /transfer"
+Much simpler.

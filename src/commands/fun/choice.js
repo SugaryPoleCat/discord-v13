@@ -24,7 +24,6 @@ module.exports = {
 		if(client.deb){
 			console.log(choice);
 		}
-		const choice = interaction.option.getString('gayness');
 		switch (choice.value) {
 			case 'gay_super':
 				reply = 'You are Super Super gay';
