@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const { MessageComponentInteraction } = require('discord.js');
 module.exports = {
 	name: path.basename(__filename, '.js'),
 	load: async (client) => {
@@ -38,12 +39,20 @@ module.exports = {
 				console.log('user is a bot');
 				return;
 			}
-			if (!interaction.isCommand()) {
+			if (!interaction.isCommand() && !interaction.isButton()) {
 				console.log('it was not a command');
 				return;
 			}
-
-			const command = client.commands.get(interaction.commandName);
+			// } else if (interaction.isButton()){
+			// console.log('its a button');
+			// console.log('INTERACTION: ', interaction);
+			// } else {
+			let command;
+			if (!interaction.isButton()) {
+				command = client.commands.get(interaction.commandName);
+			} else {
+				command = client.commands.get(interaction.message.interaction.commandName);
+			}
 			if (client.deb == true) {
 				console.log('Command: ', command);
 				console.log('interaction.commandName: ', interaction.commandName);
@@ -54,11 +63,17 @@ module.exports = {
 				return;
 			}
 			try {
-				await command.fox(client, interaction);
+				if(!interaction.isButton()){
+					await command.fox(client, interaction);
+				} else {
+					await command.bjut(client, interaction, MessageComponentInteraction);
+				}
 			} catch (err) {
 				console.error('[', new Date().toUTCString(), ']\n Something went wrong when processing a command \n', err);
 				await interaction.reply({ content: 'There was an error', ephemeral: true });
 			}
+			// }
+
 		},
 	}
 }

@@ -26,3 +26,8 @@ So subcommands, add like a forced option to the /comand.
 So it would be like you know, having multiple commands parsed in an arg, in v12.
 then manually doing the "oh, args[0] is uhhh cash transfer for command /transfer"
 Much simpler.
+
+
+UPDATE 4:
+so for button test, i havent been able yet to --- lioke, when you press the button, 
+to have it reply in command. it doesnt work for some reason, and i dont know why.
