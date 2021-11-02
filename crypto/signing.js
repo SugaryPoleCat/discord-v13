@@ -20,5 +20,10 @@ const { privateKey, publicKey } = require('./keys');
 	await verifier.update(signMsg);
 	const isVerified = await verifier.verify(publicKey, signature, 'base64');
 
+	// if its verified, 
+	// go to deciphering.
+	// else cancel.
+	// this is why signing is great.
+
 	console.log('Is verified: ', isVerified);
 })();
