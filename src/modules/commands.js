@@ -66,6 +66,7 @@ module.exports = {
 				if(!interaction.isButton()){
 					await command.fox(client, interaction);
 				} else {
+					console.log(MessageComponentInteraction);
 					await command.bjut(client, interaction, MessageComponentInteraction);
 				}
 			} catch (err) {

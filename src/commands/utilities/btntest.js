@@ -50,11 +50,12 @@ module.exports = {
 	},
 	async bjut(client, interaction, msi){
 		try{
-
 			console.log('BJUT INTERACTION: ', interaction);
 			console.log('MSI: ', msi);
+			console.log('MSI: ', msi.name);
+			console.log('MIS: ', MessageComponentInteraction.resolveType(msi));
 		} catch(err){
-			console.err(err);
+			console.error(err);
 			interaction.reply('shit went wrong');
 		}
 	}
