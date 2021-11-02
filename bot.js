@@ -63,18 +63,3 @@ process.on('SIGTERM', () => {
 	console.log('exiting');
 	return process.exit(1).then(console.log)
 });
-
-// console.log('client: ', client);
-
-// client.once('ready', (clientReady)=>{
-// 	// clinetReady is just the client
-// 	console.log('ready');
-// })
-
-// // it doesnt work at all. I dont know why.
-// // we just have to do the slash commands i suppose now....
-// client.on('messageCreate', (message)=>{
-// 	console.log(message);
-// })
-
-// client.login(process.env.DEV_TOKEN);
