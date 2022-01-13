@@ -14,15 +14,15 @@ module.exports = {
 		.addSubcommand(sc => sc.setName('user')
 			.setDescription('user thing')
 			.addUserOption(o => o.setName('target').setDescription('the user')))
-		.addSubcommand(sc=>sc.setDescription('role').setName('role')
-			.addRoleOption(o=>o.setDescription('role thjing').setName('role_thing'))),
+		.addSubcommand(sc => sc.setDescription('role').setName('role')
+			.addRoleOption(o => o.setDescription('role thjing').setName('role_thing'))),
 	async fox(client, interaction) {
 		try {
 			console.log('INTERACTION: ', interaction);
 
 			console.log('OPTIONS: ', interaction.options);
 			const stuff = interaction.options.getRole('role_thing');
-			if(stuff){
+			if (stuff) {
 				console.log('STUFF: ', stuff);
 			}
 
